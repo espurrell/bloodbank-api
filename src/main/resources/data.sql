@@ -1,4 +1,4 @@
--- create table statemnts
+-- create table statements
 
 -- Table for User
 CREATE TABLE User (
