@@ -1,4 +1,4 @@
--- create table statements
+-- Table Creation Statements
 
 -- Table for User
 CREATE TABLE User (
@@ -19,32 +19,31 @@ CREATE TABLE Person (
 
 -- Table for Donation
 CREATE TABLE Donation (
-    d_id INT PRIMARY KEY,
-    d_date DATE,
-    d_time TIME,
-    p_id INT,
-    quantity INT,
-    FOREIGN KEY (p_id) REFERENCES Person(p_id)
+    d_id SERIAL PRIMARY KEY,
+    d_date DATE NOT NULL,
+    d_time TIME NOT NULL,
+    p_id INT NOT NULL,
+    quantity INT NOT NULL,
+    FOREIGN KEY (p_id) REFERENCES Person(p_id) ON DELETE CASCADE
 );
 
 -- Table for Receive
 CREATE TABLE Receive (
-    r_id INT PRIMARY KEY,
-    r_date DATE,
-    p_id INT,
-    quantity INT,
-    r_hospital VARCHAR(100),
-    FOREIGN KEY (p_id) REFERENCES Person(p_id)
+    r_id SERIAL PRIMARY KEY,
+    r_date DATE NOT NULL,
+    p_id INT NOT NULL,
+    quantity INT NOT NULL,
+    r_hospital VARCHAR(100) NOT NULL,
+    FOREIGN KEY (p_id) REFERENCES Person(p_id) ON DELETE CASCADE
 );
 
 -- Table for Stock
 CREATE TABLE Stock (
-    s_bloodtype VARCHAR(5),
-    quantity INT,
-    PRIMARY KEY (s_bloodtype)
+    s_bloodtype VARCHAR(5) PRIMARY KEY,
+    quantity INT NOT NULL
 );
 
--- insert statements
+-- Insert Statements
 
 -- Insert data into User table
 INSERT INTO User (username, usr_password) VALUES
@@ -83,40 +82,40 @@ INSERT INTO Person (p_id, p_name, p_address, p_dob, p_phone, p_gender, p_bloodty
 (15, 'Mia Scott', '333 Redwood St', '1993-07-19', '567-890-1235', 'Female', 'AB-');
 
 -- Insert data into Donation table
-INSERT INTO Donation (d_id, d_date, d_time, p_id, quantity) VALUES
-(1, '2023-01-15', '09:30:00', 1, 450),
-(2, '2023-02-20', '11:00:00', 2, 500),
-(3, '2023-03-10', '13:15:00', 3, 450),
-(4, '2023-04-22', '10:45:00', 4, 500),
-(5, '2023-05-18', '08:30:00', 5, 450),
-(6, '2023-06-05', '12:00:00', 6, 500),
-(7, '2023-07-14', '14:30:00', 7, 450),
-(8, '2023-08-25', '09:15:00', 8, 500),
-(9, '2023-09-13', '11:45:00', 9, 450),
-(10, '2023-10-21', '15:00:00', 10, 500),
-(11, '2023-11-11', '13:30:00', 11, 450),
-(12, '2023-12-05', '10:15:00', 12, 500),
-(13, '2024-01-02', '09:45:00', 13, 450),
-(14, '2024-02-14', '08:00:00', 14, 500),
-(15, '2024-03-07', '14:00:00', 15, 450);
+INSERT INTO Donation (d_date, d_time, p_id, quantity) VALUES
+('2023-01-15', '09:30:00', 1, 450),
+('2023-02-20', '11:00:00', 2, 500),
+('2023-03-10', '13:15:00', 3, 450),
+('2023-04-22', '10:45:00', 4, 500),
+('2023-05-18', '08:30:00', 5, 450),
+('2023-06-05', '12:00:00', 6, 500),
+('2023-07-14', '14:30:00', 7, 450),
+('2023-08-25', '09:15:00', 8, 500),
+('2023-09-13', '11:45:00', 9, 450),
+('2023-10-21', '15:00:00', 10, 500),
+('2023-11-11', '13:30:00', 11, 450),
+('2023-12-05', '10:15:00', 12, 500),
+('2024-01-02', '09:45:00', 13, 450),
+('2024-02-14', '08:00:00', 14, 500),
+('2024-03-07', '14:00:00', 15, 450);
 
 -- Insert data into Receive table
-INSERT INTO Receive (r_id, r_date, p_id, quantity, r_hospital) VALUES
-(1, '2023-02-01', 2, 450, 'General Hospital'),
-(2, '2023-03-12', 3, 500, 'City Hospital'),
-(3, '2023-04-15', 4, 450, 'County Hospital'),
-(4, '2023-05-19', 5, 500, 'Regional Hospital'),
-(5, '2023-06-25', 6, 450, 'Central Medical'),
-(6, '2023-07-18', 7, 500, 'Memorial Hospital'),
-(7, '2023-08-30', 8, 450, 'St. Marys Hospital'),
-(8, '2023-09-20', 9, 500, 'St. Johns Hospital'),
-(9, '2023-10-10', 10, 450, 'General Hospital'),
-(10, '2023-11-02', 11, 500, 'City Hospital'),
-(11, '2023-12-22', 12, 450, 'County Hospital'),
-(12, '2024-01-15', 13, 500, 'Regional Hospital'),
-(13, '2024-02-05', 14, 450, 'Central Medical'),
-(14, '2024-03-22', 15, 500, 'Memorial Hospital'),
-(15, '2024-04-08', 1, 450, 'St. Marys Hospital');
+INSERT INTO Receive (r_date, p_id, quantity, r_hospital) VALUES
+('2023-02-01', 2, 450, 'General Hospital'),
+('2023-03-12', 3, 500, 'City Hospital'),
+('2023-04-15', 4, 450, 'County Hospital'),
+('2023-05-19', 5, 500, 'Regional Hospital'),
+('2023-06-25', 6, 450, 'Central Medical'),
+('2023-07-18', 7, 500, 'Memorial Hospital'),
+('2023-08-30', 8, 450, 'St. Marys Hospital'),
+('2023-09-20', 9, 500, 'St. Johns Hospital'),
+('2023-10-10', 10, 450, 'General Hospital'),
+('2023-11-02', 11, 500, 'City Hospital'),
+('2023-12-22', 12, 450, 'County Hospital'),
+('2024-01-15', 13, 500, 'Regional Hospital'),
+('2024-02-05', 14, 450, 'Central Medical'),
+('2024-03-22', 15, 500, 'Memorial Hospital'),
+('2024-04-08', 1, 450, 'St. Marys Hospital');
 
 -- Insert data into Stock table
 INSERT INTO Stock (s_bloodtype, quantity) VALUES
