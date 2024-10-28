@@ -24,7 +24,7 @@ public class ReceiveService {
         return receiveRepository.findByPersonId(pId);
     }
 
-    // Add a new receive record
+    // Add a new "receive" record
     public Receive addReceive(Receive receive) {
         return receiveRepository.save(receive);
     }

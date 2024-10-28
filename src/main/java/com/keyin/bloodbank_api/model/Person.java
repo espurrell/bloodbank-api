@@ -34,6 +34,17 @@ public class Person {
     @OneToMany(mappedBy = "person", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Donation> donations;
 
+    // Parameterized constructor
+    public Person( Long id, String name, String address, LocalDate dob, String phone, String gender, String bloodType) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.dob = dob;
+        this.phone = phone;
+        this.gender = gender;
+        this.bloodType = bloodType;
+    }
+
     // get and set
     public Long getId() {
         return id;

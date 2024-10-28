@@ -30,7 +30,7 @@ public class ReceiveController {
         return new ResponseEntity<>(receives, HttpStatus.OK);
     }
 
-    // 3. Add a new receive record
+    // 3. Add a new "receive" record
     @PostMapping
     public ResponseEntity<Receive> addReceive(@RequestBody Receive receive) {
         Receive newReceive = receiveService.addReceive(receive);
@@ -48,7 +48,7 @@ public class ReceiveController {
         }
     }
 
-    // 5. Delete a receive record (optional)
+    // 5. Delete a "receive" record (optional)
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteReceive(@PathVariable int id) {
         boolean deleted = receiveService.deleteReceive(id);

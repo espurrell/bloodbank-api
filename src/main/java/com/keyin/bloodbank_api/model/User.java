@@ -18,6 +18,12 @@ public class User {
     @Column(name = "user_password", nullable = false)
     private String password;
 
+    // Constructor with username and password
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
 //    Getters and Setters
     public Long getId() {return id;}
     public void setId(Long id) {this.id = id;}

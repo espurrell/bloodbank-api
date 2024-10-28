@@ -1,6 +1,7 @@
 package com.keyin.bloodbank_api;
 
 import com.keyin.bloodbank_api.model.Person;
+import com.keyin.bloodbank_api.model.User;
 import com.keyin.bloodbank_api.repository.PersonRepository;
 import com.keyin.bloodbank_api.repository.ReceiveRepository;
 import com.keyin.bloodbank_api.repository.UserRepository;
@@ -31,10 +32,10 @@ public class BloodbankApiApplication {
 			userRepository.save(new User("employee2", "password456"));
 
 			// Preload some sample persons
-			Person person1 = new Person(1, "John Doe", "123 Main St",
+			Person person1 = new Person(1L, "John Doe", "123 Main St",
 					LocalDate.of(1985, 5, 15), "555-555-5555",
 					"M", "O+");
-			Person person2 = new Person(2, "Jane Smith", "456 Oak Ave",
+			Person person2 = new Person(2L, "Jane Smith", "456 Oak Ave",
 					LocalDate.of(1990, 8, 22), "555-123-4567",
 					"F", "A+");
 
