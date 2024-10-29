@@ -22,6 +22,9 @@ public class Donation {
     @JoinColumn(name = "p_id", referencedColumnName = "p_id")
     private Person person;
 
+    public Donation(LocalDate now, LocalTime of, Person person1, int i) {
+    }
+
     // Getters and Setters
     public int getId() {
         return Id;
@@ -43,7 +46,7 @@ public class Donation {
         return Time;
     }
 
-    public void setTime(LocalTime dTime) {
+    public void setTime(LocalTime Time) {
         this.Time = Time;
     }
 

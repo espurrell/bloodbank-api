@@ -9,16 +9,19 @@ import javax.persistence.Table;
 public class Stock {
 
     @Id
-    private String Bloodtype;  // Primary Key
+    private String BloodType;  // Primary Key
     private int quantity;
 
-    // Getters and Setters
-    public String getsBloodtype() {
-        return Bloodtype;
+    public Stock(String s, int i) {
     }
 
-    public void setsBloodtype(String sBloodtype) {
-        this.Bloodtype = sBloodtype;
+    // Getters and Setters
+    public String getBloodType() {
+        return BloodType;
+    }
+
+    public void setBloodType(String BloodType) {
+        this.BloodType = BloodType;
     }
 
     public int getQuantity() {

@@ -25,7 +25,7 @@ public class StockService {
         Stock stock = stockRepository.findBySBloodtype(bloodType)
                 .orElse(new Stock());
 
-        stock.setsBloodtype(bloodType);
+        stock.setBloodType(bloodType);
         stock.setQuantity(stock.getQuantity() + quantityChange);
 
         return stockRepository.save(stock);

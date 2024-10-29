@@ -35,7 +35,7 @@ public class Person {
     private List<Donation> donations;
 
     // Parameterized constructor
-    public Person( String name, String address, LocalDate dob, String phone, String gender, String bloodType) {
+    public Person(long l, String name, String address, LocalDate dob, String phone, String gender, String bloodType) {
         this.name = name;
         this.address = address;
         this.dob = dob;

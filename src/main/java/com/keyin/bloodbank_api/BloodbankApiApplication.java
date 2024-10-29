@@ -1,16 +1,14 @@
 package com.keyin.bloodbank_api;
 
-import com.keyin.bloodbank_api.model.Person;
-import com.keyin.bloodbank_api.model.User;
-import com.keyin.bloodbank_api.repository.PersonRepository;
-import com.keyin.bloodbank_api.repository.ReceiveRepository;
-import com.keyin.bloodbank_api.repository.UserRepository;
+import com.keyin.bloodbank_api.model.*;
+import com.keyin.bloodbank_api.repository.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 @SpringBootApplication
 public class BloodbankApiApplication {

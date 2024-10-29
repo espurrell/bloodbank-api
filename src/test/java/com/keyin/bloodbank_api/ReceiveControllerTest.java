@@ -17,7 +17,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
@@ -41,7 +40,7 @@ public class ReceiveControllerTest {
 
     @BeforeEach
     public void setUp() {
-        person = new Person("John Doe", "123 Main St", LocalDate.of(1985, 5, 15), "555-555-5555", "M", "O+");
+        person = new Person(1L, "John Doe", "123 Main St", LocalDate.of(1985, 5, 15), "555-555-5555", "M", "O+");
         receive = new Receive(LocalDate.now(), 2, "General Hospital", person);
         receive.setId(1); // set ID for the mock entity
     }

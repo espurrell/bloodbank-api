@@ -20,7 +20,7 @@ import java.util.List;
             // Add a new donation and update stock accordingly
             public Donation addDonation(Donation donation) {
                 Donation savedDonation = donationRepository.save(donation);
-                stockService.updateStockQuantity(donation.getPerson().getBloodtype(), donation.getQuantity());
+                stockService.updateStockQuantity(donation.getPerson().getBloodType(), donation.getQuantity());
                 return savedDonation;
             }
 
@@ -36,7 +36,7 @@ import java.util.List;
 
             // Find donations by blood type
             public List<Donation> getDonationsByBloodType(String bloodType) {
-                return donationRepository.findByPersonBloodtype(bloodType);
+                return donationRepository.findByPersonBloodType(bloodType);
             }
         }
 
