@@ -1,9 +1,10 @@
+// src/main/java/com/example/bloodbank/model/Donation.java
+
 package com.keyin.bloodbank_api.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
-
 
 @Entity
 @Table(name = "Donation")
@@ -11,15 +12,10 @@ public class Donation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private int Id;  // Primary Key
 
-    @Column(name = "d_date")
-    private LocalDate date;
-
-    @Column(name = "d_time")
-    private LocalTime time;
-
-    @Column(name = "quantity")
+    private LocalDate Date;
+    private LocalTime Time;
     private int quantity;
 
     @ManyToOne
@@ -27,28 +23,28 @@ public class Donation {
     private Person person;
 
     // Getters and Setters
-    public Integer getId() {
-        return id;
+    public int getId() {
+        return Id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(int Id) {
+        this.Id = Id;
     }
 
     public LocalDate getDate() {
-        return date;
+        return Date;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public void setDate(LocalDate dDate) {
+        this.Date = dDate;
     }
 
     public LocalTime getTime() {
-        return time;
+        return Time;
     }
 
-    public void setTime(LocalTime time) {
-        this.time = time;
+    public void setTime(LocalTime dTime) {
+        this.Time = Time;
     }
 
     public int getQuantity() {
@@ -67,4 +63,3 @@ public class Donation {
         this.person = person;
     }
 }
-
