@@ -1,6 +1,7 @@
 package com.keyin.bloodbank_api.model;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -31,7 +32,7 @@ public class Receive {
     private String rHospital;
 
     // Constructors
-    public Receive() {}
+    public Receive(LocalDate now, int i, String generalHospital, Person person) {}
 
     public Receive(Date rDate, Person person, int quantity, String rHospital) {
         this.rDate = rDate;
@@ -41,6 +42,7 @@ public class Receive {
     }
 
     // Getters and Setters
+
     public int getRId() {
         return rId;
     }

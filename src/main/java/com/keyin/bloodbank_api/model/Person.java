@@ -35,8 +35,7 @@ public class Person {
     private List<Donation> donations;
 
     // Parameterized constructor
-    public Person( Long id, String name, String address, LocalDate dob, String phone, String gender, String bloodType) {
-        this.id = id;
+    public Person( String name, String address, LocalDate dob, String phone, String gender, String bloodType) {
         this.name = name;
         this.address = address;
         this.dob = dob;
@@ -44,6 +43,10 @@ public class Person {
         this.gender = gender;
         this.bloodType = bloodType;
     }
+
+    public Person() {
+//    no argument constructor
+    };
 
     // get and set
     public Long getId() {

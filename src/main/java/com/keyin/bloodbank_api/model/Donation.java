@@ -1,10 +1,9 @@
 package com.keyin.bloodbank_api.model;
 
 import javax.persistence.*;
-import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Date;
+
 
 @Entity
 @Table(name = "Donation")
@@ -13,10 +12,6 @@ public class Donation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    private Date date;
-    private Time time;
-    private Integer quantity;
 
     @Column(name = "d_date")
     private LocalDate date;
@@ -32,15 +27,15 @@ public class Donation {
     private Person person;
 
     // Getters and Setters
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 

@@ -36,8 +36,9 @@ public class PersonControllerTest {
         List<Person> mockPersons = Arrays.asList(new Person(), new Person());
         when(personService.getAllPersons()).thenReturn(mockPersons);
 
-        List<Person> persons = personController.getAllPersons();
-        assertEquals(2, persons.size());
+        ResponseEntity<List<Person>> response = personController.getAllPersons();
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(2, response.getBody().size());
     }
 
     @Test
@@ -47,6 +48,8 @@ public class PersonControllerTest {
 
         when(personService.createPerson(mockPerson)).thenReturn(mockPerson);
         ResponseEntity<Person> response = personController.createPerson(mockPerson);
+
         assertEquals(HttpStatus.CREATED, response.getStatusCode());
+        assertEquals("John Doe", response.getBody().getName());
     }
 }

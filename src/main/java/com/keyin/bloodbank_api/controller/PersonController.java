@@ -4,6 +4,7 @@ import com.keyin.bloodbank_api.model.Person;
 import com.keyin.bloodbank_api.service.PersonService;
 import com.keyin.bloodbank_api.model.Donation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,7 +26,7 @@ public class PersonController {
     @PostMapping
     public ResponseEntity<Person> createPerson(@RequestBody Person person) {
         Person createdPerson = personService.createPerson(person);
-        return ResponseEntity.ok(createdPerson);
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdPerson);
     }
 
     @GetMapping("/{personId}/donations")
