@@ -19,6 +19,11 @@ public class ReceiveService {
         return receiveRepository.findAll();
     }
 
+// hospital to last receive stock
+    public Receive getLastHospitalToReceiveStock() {
+        return receiveRepository.findLastHospitalToReceiveStock();
+    }
+
     // Get receive records by person ID
     public List<Receive> getReceivesByPersonId(int pId) {
         return receiveRepository.findByPersonId(pId);

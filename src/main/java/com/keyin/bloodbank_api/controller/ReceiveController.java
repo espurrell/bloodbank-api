@@ -58,4 +58,10 @@ public class ReceiveController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
+//    allows to find the last hospital to receive donation by date
+    @GetMapping("/lastHospital")
+    public Receive getLastHospitalToReceiveStock() {
+        return receiveService.getLastHospitalToReceiveStock();
+    }
 }
