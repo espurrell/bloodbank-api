@@ -41,7 +41,7 @@ public class DonationController {
     }
 
     // Get donations by blood type
-    @GetMapping("/bloodtype/{bloodType}")
+    @GetMapping("/bloodType/{bloodType}")
     public ResponseEntity<List<Donation>> getDonationsByBloodType(@PathVariable String bloodType) {
         List<Donation> donations = donationService.getDonationsByBloodType(bloodType);
         return ResponseEntity.ok(donations);

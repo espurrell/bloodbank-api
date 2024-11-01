@@ -1,7 +1,6 @@
 package com.keyin.bloodbank_api;
 
-package com.keyin.bloodbank_api.controller;
-
+import com.keyin.bloodbank_api.controller.DonationController;
 import com.keyin.bloodbank_api.model.Donation;
 import com.keyin.bloodbank_api.model.Person;
 import com.keyin.bloodbank_api.service.DonationService;
@@ -34,8 +33,8 @@ class DonationControllerTest {
     void addDonation_shouldReturnCreatedDonation() throws Exception {
         // Arrange
         Donation donation = new Donation();
-        donation.setdId(1);
-        donation.setdDate(LocalDate.now());
+        donation.setId(1);
+        donation.setDate(LocalDate.now());
         donation.setQuantity(2);
         donation.setPerson(new Person());
 
@@ -45,8 +44,8 @@ class DonationControllerTest {
         mockMvc.perform(post("/api/donations")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{\"dDate\":\"2024-10-01\", \"quantity\": 2, \"person\": { \"pId\": 1 }}"))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.dId").value(1))
+                .andExpect(status().isCreated())
+                .andExpect(jsonPath("$.Id").value(1))
                 .andExpect(jsonPath("$.quantity").value(2));
     }
 
@@ -54,7 +53,7 @@ class DonationControllerTest {
     void getDonationsByPersonId_shouldReturnListOfDonations() throws Exception {
         // Arrange
         Donation donation = new Donation();
-        donation.setdId(1);
+        donation.setId(1);
         donation.setQuantity(2);
 
         List<Donation> donations = Collections.singletonList(donation);
@@ -71,8 +70,8 @@ class DonationControllerTest {
     void getDonationsByDate_shouldReturnListOfDonations() throws Exception {
         // Arrange
         Donation donation = new Donation();
-        donation.setdId(1);
-        donation.setdDate(LocalDate.parse("2024-10-01"));
+        donation.setId(1);
+        donation.setDate(LocalDate.parse("2024-10-01"));
         donation.setQuantity(2);
 
         when(donationService.getDonationsByDate(LocalDate.parse("2024-10-01")))
@@ -81,8 +80,8 @@ class DonationControllerTest {
         // Act and Assert
         mockMvc.perform(get("/api/donations/date/2024-10-01"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].dId").value(1))
-                .andExpect(jsonPath("$[0].dDate").value("2024-10-01"))
+                .andExpect(jsonPath("$[0].Id").value(1))
+                .andExpect(jsonPath("$[0].date").value("2024-10-01"))
                 .andExpect(jsonPath("$[0].quantity").value(2));
     }
 }

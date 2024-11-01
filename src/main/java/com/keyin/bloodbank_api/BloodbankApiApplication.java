@@ -41,8 +41,8 @@ public class BloodbankApiApplication {
 			personRepository.save(person2);
 
 			// Preload some sample stocks
-			stockRepository.save(new Stock("O-", 10));
-			stockRepository.save(new Stock("A+", 20));
+			stockRepository.save(new Stock());
+			stockRepository.save(new Stock());
 
 			// Preload some donations and receive events
 			donationRepository.save(new Donation(LocalDate.now(), LocalTime.of(10, 30), person1, 500));

@@ -32,21 +32,21 @@ public class UserControllerTest {
 
     @Test
     public void testGetAllUsers() {
-        List<User> mockUsers = Arrays.asList(new User(), new User());
+        List<User> mockUsers = Arrays.asList(new User("user1", "password1"), new User("user2", "password2"));
         when(userService.getAllUsers()).thenReturn(mockUsers);
 
-        List<User> users = userController.getAllUsers();
-        assertEquals(2,users.size());
+        ResponseEntity<List<User>> response = userController.getAllUsers();
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(2,response.getBody().size());
     }
 
     @Test
     public void testCreateUser() {
-        User mockUser = new User();
-        mockUser.setUsername("jdoe");
-        mockUser.setPassword("password123");
+        User mockUser = new User("jdoe", "password123");
 
         when(userService.createUser(mockUser)).thenReturn(mockUser);
         ResponseEntity<User> response = userController.createUser(mockUser);
         assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(mockUser, response.getBody());
     }
 }

@@ -42,7 +42,7 @@ public class ReceiveControllerTest {
     public void setUp() {
         person = new Person(1L, "John Doe", "123 Main St", LocalDate.of(1985, 5, 15), "555-555-5555", "M", "O+");
         receive = new Receive(LocalDate.now(), 2, "General Hospital", person);
-        receive.setId(1); // set ID for the mock entity
+        receive.setRId(1); // set ID for the mock entity
     }
 
     // 1. Test GET /api/receive - get all receives
@@ -86,7 +86,7 @@ public class ReceiveControllerTest {
     @Test
     public void testUpdateReceive() throws Exception {
         Receive updatedReceive = new Receive(LocalDate.now(), 3, "City Hospital", person);
-        updatedReceive.setId(1);
+        updatedReceive.setRId(1);
         when(receiveService.updateReceive(Mockito.eq(1), any(Receive.class))).thenReturn(updatedReceive);
 
         mockMvc.perform(put("/api/receive/1")

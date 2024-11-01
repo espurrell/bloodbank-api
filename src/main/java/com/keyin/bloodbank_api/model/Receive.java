@@ -94,4 +94,5 @@ public class Receive {
                 ", rHospital='" + rHospital + '\'' +
                 '}';
     }
+
 }

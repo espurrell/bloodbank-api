@@ -13,7 +13,6 @@ public class Donation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Id;  // Primary Key
-
     private LocalDate Date;
     private LocalTime Time;
     private int quantity;
@@ -23,6 +22,10 @@ public class Donation {
     private Person person;
 
     public Donation(LocalDate now, LocalTime of, Person person1, int i) {
+    }
+
+    public Donation() {
+        // No-argument constructor
     }
 
     // Getters and Setters
