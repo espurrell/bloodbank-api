@@ -11,10 +11,7 @@ import java.time.LocalDate;
 @Repository
 public interface DonationRepository extends JpaRepository<Donation, Long> {
     List<Donation> findDonationsByPersonId(Long personId);
-
     List<Donation> findByPersonBloodType(String bloodType);
-
     List<Donation> findByDate(LocalDate date);
-
     List<Donation> findByPersonId(Integer personId);
 }

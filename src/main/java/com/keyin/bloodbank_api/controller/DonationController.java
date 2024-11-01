@@ -27,8 +27,8 @@ public class DonationController {
 
     // Get all donations by a person
     @GetMapping("/person/{pId}")
-    public ResponseEntity<List<Donation>> getDonationsByPersonId(@PathVariable int pId) {
-        List<Donation> donations = donationService.getDonationsByPersonId(pId);
+    public ResponseEntity<List<Donation>> findDonationsByPersonId(@PathVariable int pId) {
+        List<Donation> donations = donationService.findDonationsByPersonId(pId);
         return ResponseEntity.ok(donations);
     }
 

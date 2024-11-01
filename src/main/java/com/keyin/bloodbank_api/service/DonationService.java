@@ -25,7 +25,7 @@ import java.util.List;
             }
 
             // Find all donations by a person
-            public List<Donation> getDonationsByPersonId(int pId) {
+            public List<Donation> findDonationsByPersonId(int pId) {
                 return donationRepository.findByPersonId(pId);
             }
 

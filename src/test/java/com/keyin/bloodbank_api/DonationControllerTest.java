@@ -57,7 +57,7 @@ class DonationControllerTest {
         donation.setQuantity(2);
 
         List<Donation> donations = Collections.singletonList(donation);
-        when(donationService.getDonationsByPersonId(1)).thenReturn(donations);
+        when(donationService.findDonationsByPersonId(1)).thenReturn(donations);
 
         // Act and Assert
         mockMvc.perform(get("/api/donations/person/1"))

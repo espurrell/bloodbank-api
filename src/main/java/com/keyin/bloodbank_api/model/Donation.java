@@ -21,7 +21,11 @@ public class Donation {
     @JoinColumn(name = "p_id", referencedColumnName = "p_id")
     private Person person;
 
-    public Donation(LocalDate now, LocalTime of, Person person1, int i) {
+    public Donation(LocalDate Date, LocalTime Time, Person person, int quantity) {
+        this.Date = Date;
+        this.Time = Time;
+        this.person = person;
+        this.quantity = quantity;
     }
 
     public Donation() {
