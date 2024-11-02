@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Bean;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.keyin.bloodbank_api")
 public class BloodbankApiApplication {
 
 	public static void main(String[] args) {
@@ -30,10 +30,10 @@ public class BloodbankApiApplication {
 			userRepository.save(new User("employee2", "password456"));
 
 			// Preload some sample persons
-			Person person1 = new Person(1L, "John Doe", "123 Main St",
+			Person person1 = new Person(1, "John Doe", "123 Main St",
 					LocalDate.of(1985, 5, 15), "555-555-5555",
 					"M", "O+");
-			Person person2 = new Person(2L, "Jane Smith", "456 Oak Ave",
+			Person person2 = new Person(2, "Jane Smith", "456 Oak Ave",
 					LocalDate.of(1990, 8, 22), "555-123-4567",
 					"F", "A+");
 

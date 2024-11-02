@@ -29,9 +29,9 @@ public class PersonController {
         return ResponseEntity.status(HttpStatus.CREATED).body(createdPerson);
     }
 
-    @GetMapping("/{personId}/donations")
-    public ResponseEntity<List<Donation>> getDonationsByPersonId(@PathVariable Long personId) {
-        List<Donation> donations = personService.getDonationsByPersonId(personId);
+    @GetMapping("/{p_id}/donations")
+    public ResponseEntity<List<Donation>> getDonationsByPersonId(@PathVariable int p_id) {
+        List<Donation> donations = personService.getDonationsByPersonId(p_id);
         return ResponseEntity.ok(donations);
     }
 

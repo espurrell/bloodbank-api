@@ -19,20 +19,20 @@ public class StockController {
     private StockService stockService;
 
     // Retrieve stock for a specific blood type
-    @GetMapping("/{bloodType}")
-    public ResponseEntity<Stock> getStockByBloodType(@PathVariable String bloodType) {
-        Optional<Stock> stock = stockService.getStockByBloodType(bloodType);
+    @GetMapping("/{s_bloodtype}")
+    public ResponseEntity<Stock> getStockByBloodType(@PathVariable String s_bloodtype) {
+        Optional<Stock> stock = stockService.getStockByBloodType(s_bloodtype);
         return stock.map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     // Update stock quantity
-    @PutMapping("/{bloodType}")
+    @PutMapping("/{s_bloodtype}")
     public ResponseEntity<Stock> updateStockQuantity(
-            @PathVariable String bloodType,
+            @PathVariable String s_bloodtype,
             @RequestParam int quantityChange) {
 
-        Stock updatedStock = stockService.updateStockQuantity(bloodType, quantityChange);
+        Stock updatedStock = stockService.updateStockQuantity(s_bloodtype, quantityChange);
         return ResponseEntity.ok(updatedStock);
     }
 

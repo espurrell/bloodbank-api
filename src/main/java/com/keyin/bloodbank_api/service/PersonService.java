@@ -30,7 +30,7 @@ public class PersonService {
         return personRepository.findByBloodType(bloodType);
     }
 
-    public List<Donation> getDonationsByPersonId(Long personId) {
-        return donationRepository.findDonationsByPersonId(personId);
+    public List<Donation> getDonationsByPersonId(int p_id) {
+        return donationRepository.getDonationsByPersonId(p_id);
     }
 }

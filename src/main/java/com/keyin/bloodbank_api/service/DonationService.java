@@ -16,7 +16,6 @@ import java.util.List;
 
             @Autowired
             private StockService stockService;
-
             // Add a new donation and update stock accordingly
             public Donation addDonation(Donation donation) {
                 Donation savedDonation = donationRepository.save(donation);
@@ -24,21 +23,22 @@ import java.util.List;
                 return savedDonation;
             }
 
-            // Find all donations by a person
-            public List<Donation> findDonationsByPersonId(int pId) {
-                return donationRepository.findByPersonId(pId);
-            }
-
-            // Find donations by date
-            public List<Donation> getDonationsByDate(LocalDate dDate) {
-                return donationRepository.findByDate(dDate);
-            }
-
-            // Find donations by blood type
-            public List<Donation> getDonationsByBloodType(String bloodType) {
-                return donationRepository.findByPersonBloodType(bloodType);
-            }
+        // DonationService.java
+        public List<Donation> getDonationsByPersonId(int p_id) {
+            return donationRepository.getDonationsByPersonId(p_id);
         }
+
+
+        // Find donations by date
+            public List<Donation> getDonationsByDate(LocalDate d_date) {
+                return donationRepository.findByDDate(d_date);
+            }
+
+        public List<Donation> getDonationsByBloodType(String d_bloodtype) {
+            return donationRepository.findByPersonBloodType(d_bloodtype);
+        }
+
+    }
 
 
 

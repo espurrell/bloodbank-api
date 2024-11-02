@@ -3,11 +3,13 @@ package com.keyin.bloodbank_api;
 import com.keyin.bloodbank_api.controller.DonationController;
 import com.keyin.bloodbank_api.model.Donation;
 import com.keyin.bloodbank_api.model.Person;
+import com.keyin.bloodbank_api.repository.PersonRepository;
 import com.keyin.bloodbank_api.service.DonationService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
@@ -21,13 +23,17 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @WebMvcTest(DonationController.class)
-class DonationControllerTest {
+@SpringBootTest
+public class DonationControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
 
     @MockBean
     private DonationService donationService;
+
+    @MockBean
+    private PersonRepository personRepository;
 
     @Test
     void addDonation_shouldReturnCreatedDonation() throws Exception {
@@ -43,9 +49,9 @@ class DonationControllerTest {
         // Act and Assert
         mockMvc.perform(post("/api/donations")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content("{\"dDate\":\"2024-10-01\", \"quantity\": 2, \"person\": { \"pId\": 1 }}"))
+                        .content("{\"d_date\":\"2024-10-01\", \"quantity\": 2, \"person\": { \"p_id\": 1 }}"))
                 .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.Id").value(1))
+                .andExpect(jsonPath("$.d_id").value(1))
                 .andExpect(jsonPath("$.quantity").value(2));
     }
 
@@ -57,12 +63,12 @@ class DonationControllerTest {
         donation.setQuantity(2);
 
         List<Donation> donations = Collections.singletonList(donation);
-        when(donationService.findDonationsByPersonId(1)).thenReturn(donations);
+        when(donationService.getDonationsByPersonId(1)).thenReturn(Collections.singletonList(donation));
 
         // Act and Assert
         mockMvc.perform(get("/api/donations/person/1"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].dId").value(1))
+                .andExpect(jsonPath("$[0].p_id").value(1))
                 .andExpect(jsonPath("$[0].quantity").value(2));
     }
 
@@ -78,10 +84,10 @@ class DonationControllerTest {
                 .thenReturn(Collections.singletonList(donation));
 
         // Act and Assert
-        mockMvc.perform(get("/api/donations/date/2024-10-01"))
+        mockMvc.perform(get("/api/donations/d_date/2024-10-01"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].Id").value(1))
-                .andExpect(jsonPath("$[0].date").value("2024-10-01"))
+                .andExpect(jsonPath("$[0].d_id").value(1))
+                .andExpect(jsonPath("$[0].d_date").value("2024-10-01"))
                 .andExpect(jsonPath("$[0].quantity").value(2));
     }
 }

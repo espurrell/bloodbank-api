@@ -40,7 +40,7 @@ public class ReceiveControllerTest {
 
     @BeforeEach
     public void setUp() {
-        person = new Person(1L, "John Doe", "123 Main St", LocalDate.of(1985, 5, 15), "555-555-5555", "M", "O+");
+        person = new Person(1, "John Doe", "123 Main St", LocalDate.of(1985, 5, 15), "555-555-5555", "M", "O+");
         receive = new Receive(LocalDate.now(), 2, "General Hospital", person);
         receive.setRId(1); // set ID for the mock entity
     }

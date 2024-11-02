@@ -11,37 +11,37 @@ public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "p_id")
-    private Long id;
+    private int p_id;
 
     @Column(name = "p_name", nullable = false)
-    private String name;
+    private String p_name;
 
     @Column(name = "p_address")
-    private String address;
+    private String p_address;
 
     @Column(name = "p_dob")
-    private LocalDate dob;
+    private LocalDate p_dob;
 
     @Column(name = "p_phone")
-    private String phone;
+    private String p_phone;
 
     @Column(name = "p_gender")
-    private String gender;
+    private String p_gender;
 
     @Column(name = "p_bloodType")
-    private String bloodType;
+    private String p_bloodtype;
 
     @OneToMany(mappedBy = "person", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Donation> donations;
 
     // Parameterized constructor
-    public Person(long l, String name, String address, LocalDate dob, String phone, String gender, String bloodType) {
-        this.name = name;
-        this.address = address;
-        this.dob = dob;
-        this.phone = phone;
-        this.gender = gender;
-        this.bloodType = bloodType;
+    public Person(int p_id, String name, String address, LocalDate dob, String phone, String gender, String bloodType) {
+        this.p_name = name;
+        this.p_address = address;
+        this.p_dob = dob;
+        this.p_phone = phone;
+        this.p_gender = gender;
+        this.p_bloodtype = bloodType;
     }
 
     public Person() {
@@ -49,53 +49,53 @@ public class Person {
     };
 
     // get and set
-    public Long getId() {
-        return id;
+    public int getId() {
+        return p_id;
     }
-    public void setId(Long id) {
-        this.id = id;
+    public void setId(int p_id) {
+        this.p_id = p_id;
     }
 
     public String getName() {
-        return name;
+        return p_name;
     }
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String p_name) {
+        this.p_name = p_name;
     }
 
     public String getAddress() {
-        return address;
+        return p_address;
     }
-    public void setAddress(String address) {
-        this.address = address;
+    public void setAddress(String p_address) {
+        this.p_address = p_address;
     }
 
     public LocalDate getDob() {
-        return dob;
+        return p_dob;
     }
-    public void setDob(LocalDate dob) {
-        this.dob = dob;
+    public void setDob(LocalDate p_dob) {
+        this.p_dob = p_dob;
     }
 
     public String getPhone() {
-        return phone;
+        return p_phone;
     }
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setPhone(String p_phone) {
+        this.p_phone = p_phone;
     }
 
     public String getGender() {
-        return gender;
+        return p_gender;
     }
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setGender(String p_gender) {
+        this.p_gender = p_gender;
     }
 
     public String getBloodType() {
-        return bloodType;
+        return p_bloodtype;
     }
-    public void setBloodType(String bloodType) {
-        this.bloodType = bloodType;
+    public void setBloodType(String p_bloodtype) {
+        this.p_bloodtype = p_bloodtype;
     }
 
     public List<Donation> getDonations() {

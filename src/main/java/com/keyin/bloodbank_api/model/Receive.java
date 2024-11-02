@@ -12,11 +12,11 @@ public class Receive {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "r_id")
-    private int rId;
+    private int r_id;
 
     // Date the blood was received
     @Column(name = "r_date", nullable = false)
-    private Date rDate;
+    private Date r_date;
 
     // Foreign key linking to the Person entity
     @ManyToOne
@@ -29,34 +29,34 @@ public class Receive {
 
     // Hospital where blood was received
     @Column(name = "r_hospital", nullable = false)
-    private String rHospital;
+    private String r_hospital;
 
     // Constructors
     public Receive(LocalDate now, int i, String generalHospital, Person person) {}
 
-    public Receive(Date rDate, Person person, int quantity, String rHospital) {
-        this.rDate = rDate;
+    public Receive(Date r_date, Person person, int quantity, String r_hospital) {
+        this.r_date = r_date;
         this.person = person;
         this.quantity = quantity;
-        this.rHospital = rHospital;
+        this.r_hospital = r_hospital;
     }
 
     // Getters and Setters
 
     public int getRId() {
-        return rId;
+        return r_id;
     }
 
-    public void setRId(int rId) {
-        this.rId = rId;
+    public void setRId(int r_id) {
+        this.r_id = r_id;
     }
 
     public Date getRDate() {
-        return rDate;
+        return r_date;
     }
 
-    public void setRDate(Date rDate) {
-        this.rDate = rDate;
+    public void setRDate(Date r_date) {
+        this.r_date = r_date;
     }
 
     public Person getPerson() {
@@ -76,22 +76,22 @@ public class Receive {
     }
 
     public String getRHospital() {
-        return rHospital;
+        return r_hospital;
     }
 
-    public void setRHospital(String rHospital) {
-        this.rHospital = rHospital;
+    public void setRHospital(String r_hospital) {
+        this.r_hospital = r_hospital;
     }
 
     // Override toString method
     @Override
     public String toString() {
         return "Receive{" +
-                "rId=" + rId +
-                ", rDate=" + rDate +
+                "r_id=" + r_id +
+                ", r_date=" + r_date +
                 ", person=" + person +
                 ", quantity=" + quantity +
-                ", rHospital='" + rHospital + '\'' +
+                ", r_hospital='" + r_hospital + '\'' +
                 '}';
     }
 

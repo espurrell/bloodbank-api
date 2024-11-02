@@ -25,25 +25,26 @@ public class DonationController {
         return ResponseEntity.ok(savedDonation);
     }
 
-    // Get all donations by a person
-    @GetMapping("/person/{pId}")
-    public ResponseEntity<List<Donation>> findDonationsByPersonId(@PathVariable int pId) {
-        List<Donation> donations = donationService.findDonationsByPersonId(pId);
+    // DonationController.java
+    @GetMapping("/api/donations/person/{p_id}")
+    public ResponseEntity<List<Donation>> getDonationsByPersonName(@PathVariable int p_id) {
+        List<Donation> donations = donationService.getDonationsByPersonId(p_id);
         return ResponseEntity.ok(donations);
     }
 
     // Get donations by date
-    @GetMapping("/date/{dDate}")
-    public ResponseEntity<List<Donation>> getDonationsByDate(@PathVariable String dDate) {
-        LocalDate date = LocalDate.parse(dDate);
+    @GetMapping("/date/{d_date}")
+    public ResponseEntity<List<Donation>> getDonationsByDate(@PathVariable String d_date) {
+        LocalDate date = LocalDate.parse(d_date);
         List<Donation> donations = donationService.getDonationsByDate(date);
         return ResponseEntity.ok(donations);
     }
 
     // Get donations by blood type
-    @GetMapping("/bloodType/{bloodType}")
-    public ResponseEntity<List<Donation>> getDonationsByBloodType(@PathVariable String bloodType) {
-        List<Donation> donations = donationService.getDonationsByBloodType(bloodType);
+    @GetMapping("/bloodType/{d_bloodtype}")
+    public ResponseEntity<List<Donation>> getDonationsByBloodType(@PathVariable String d_bloodtype) {
+        List<Donation> donations = donationService.getDonationsByBloodType(d_bloodtype);
         return ResponseEntity.ok(donations);
     }
+
 }

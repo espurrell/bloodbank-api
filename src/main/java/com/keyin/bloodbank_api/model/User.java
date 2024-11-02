@@ -5,33 +5,25 @@ import javax.persistence.*;
 @Entity
 @Table(name = "User")
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
     @Column(name = "username", nullable = false, unique = true)
     private String username;
 
-    @Column(name = "user_password", nullable = false)
-    private String password;
+    @Column(name = "usr_password", nullable = false)
+    private String usr_password;
 
     // No-argument constructor
     public User() {
     }
 
     // Constructor with username and password
-    public User(String username, String password) {
+    public User(String username, String usr_password) {
         this.username = username;
-        this.password = password;
+        this.usr_password = usr_password;
     }
-
-    // Getters and Setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
 
     public String getUsername() { return username; }
     public void setUsername(String username) { this.username = username; }
 
-    public String getPassword() { return password; }
-    public void setPassword(String password) { this.password = password; }
+    public String getPassword() { return usr_password; }
+    public void setPassword(String usr_password) { this.usr_password = usr_password; }
 }

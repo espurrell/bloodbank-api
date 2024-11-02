@@ -9,10 +9,10 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface PersonRepository extends JpaRepository<Person, Long> {
+public interface PersonRepository extends JpaRepository<Person, Integer> {
 
     List<Person> findByBloodType(String bloodType);
 
-    @Query("SELECT d FROM Donation d WHERE d.person.id = :personId")
-    List<Donation> findDonationsByPersonId(Long personId);
+    @Query("SELECT d FROM Donation d WHERE d.person.id = :p_id")
+    List<Donation> findDonationsByPersonId(int p_id);
 }

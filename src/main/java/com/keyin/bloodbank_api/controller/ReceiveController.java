@@ -24,9 +24,9 @@ public class ReceiveController {
     }
 
     // 2. Get receive records by person ID
-    @GetMapping("/{pId}")
-    public ResponseEntity<List<Receive>> getReceivesByPersonId(@PathVariable int pId) {
-        List<Receive> receives = receiveService.getReceivesByPersonId(pId);
+    @GetMapping("/{p_id}")
+    public ResponseEntity<List<Receive>> getReceivesByPersonId(@PathVariable int p_id) {
+        List<Receive> receives = receiveService.getReceivesByPersonId(p_id);
         return new ResponseEntity<>(receives, HttpStatus.OK);
     }
 
@@ -38,9 +38,9 @@ public class ReceiveController {
     }
 
     // 4. Update a receive record
-    @PutMapping("/{id}")
-    public ResponseEntity<Receive> updateReceive(@PathVariable int id, @RequestBody Receive receive) {
-        Receive updatedReceive = receiveService.updateReceive(id, receive);
+    @PutMapping("/{r_id}")
+    public ResponseEntity<Receive> updateReceive(@PathVariable int r_id, @RequestBody Receive receive) {
+        Receive updatedReceive = receiveService.updateReceive(r_id, receive);
         if (updatedReceive != null) {
             return new ResponseEntity<>(updatedReceive, HttpStatus.OK);
         } else {
@@ -49,9 +49,9 @@ public class ReceiveController {
     }
 
     // 5. Delete a "receive" record (optional)
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteReceive(@PathVariable int id) {
-        boolean deleted = receiveService.deleteReceive(id);
+    @DeleteMapping("/{r_id}")
+    public ResponseEntity<Void> deleteReceive(@PathVariable int r_id) {
+        boolean deleted = receiveService.deleteReceive(r_id);
         if (deleted) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } else {

@@ -9,7 +9,7 @@ import javax.persistence.Table;
 public class Stock {
 
     @Id
-    private String bloodType;  // Primary Key
+    private String s_bloodtype;  // Primary Key
     private int quantity;
 
     public Stock() {
@@ -17,11 +17,11 @@ public class Stock {
 
     // Getters and Setters
     public String getBloodType() {
-        return bloodType;
+        return s_bloodtype;
     }
 
-    public void setBloodType(String bloodType) {
-        this.bloodType = bloodType;
+    public void setBloodType(String s_bloodtype) {
+        this.s_bloodtype = s_bloodtype;
     }
 
     public int getQuantity() {
