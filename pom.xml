@@ -11,7 +11,7 @@
 	</parent>
 
 	<groupId>com.keyin</groupId>
-	<artifactId>bloodbank-api</artifactId>
+	<artifactId>bloodbank_api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>bloodbank-api</name>
 	<description>fall2024mtsprint</description>
