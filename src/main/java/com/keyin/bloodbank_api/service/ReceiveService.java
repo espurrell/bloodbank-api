@@ -25,8 +25,8 @@ public class ReceiveService {
     }
 
     // Get receive records by person ID
-    public List<Receive> getReceivesByPersonId(int pId) {
-        return receiveRepository.findByPersonId(pId);
+    public List<Receive> getReceivesByPersonId(int p_id) {
+        return receiveRepository.findByPersonId(p_id);
     }
 
     // Add a new "receive" record

@@ -24,5 +24,5 @@ public interface DonationRepository extends JpaRepository<Donation, Long> {
     List<Donation> getByPersonId(@Param("p_id") int p_id);
 
     @Query("SELECT d FROM Donation d WHERE d.person.p_id = :p_id")
-    List<Donation> getDonationsByPersonId(int pId);
+    List<Donation> getDonationsByPersonId(int p_id);
 }

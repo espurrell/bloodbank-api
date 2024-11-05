@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository
 public interface ReceiveRepository extends JpaRepository<Receive, Integer> {
-    List<Receive> findByPersonId(int personId);
+    List<Receive> findByPersonId(int p_id);
 
     @Query("SELECT r FROM Receive r ORDER BY r.r_date DESC LIMIT 1")
     Receive findLastHospitalToReceiveStock();
