@@ -7,17 +7,14 @@ import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
-@Table(name = "Receive")
 public class Receive {
 
     // Primary key for the Receive entity
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "r_id")
     private int r_id;
 
     // Date the blood was received
-    @Column(name = "r_date", nullable = false)
     private Date r_date;
 
     // Foreign key linking to the Person entity
@@ -26,11 +23,9 @@ public class Receive {
     private Person person;
 
     // Quantity of blood received
-    @Column(name = "quantity", nullable = false)
     private int quantity;
 
     // Hospital where blood was received
-    @Column(name = "r_hospital", nullable = false)
     private String r_hospital;
 
     // Constructors

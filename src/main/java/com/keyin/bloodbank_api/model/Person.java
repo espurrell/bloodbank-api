@@ -12,25 +12,18 @@ import java.util.List;
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "p_id")
     private int p_id;
 
-    @Column(name = "p_name", nullable = false)
     private String p_name;
 
-    @Column(name = "p_address")
     private String p_address;
 
-    @Column(name = "p_dob")
     private LocalDate p_dob;
 
-    @Column(name = "p_phone")
     private String p_phone;
 
-    @Column(name = "p_gender")
     private String p_gender;
 
-    @Column(name = "p_bloodType")
     private String p_bloodtype;
 
     @OneToMany(mappedBy = "person", cascade = CascadeType.ALL, orphanRemoval = true)

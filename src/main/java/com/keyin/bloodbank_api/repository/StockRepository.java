@@ -8,6 +8,6 @@ import java.util.Optional;
 
 @Repository
 public interface StockRepository extends JpaRepository<Stock, String> {
-    Optional<Stock> findBySBloodtype(String bloodType);
+    Optional<Stock> findBySBloodtype(String p_bloodType);
 }
 

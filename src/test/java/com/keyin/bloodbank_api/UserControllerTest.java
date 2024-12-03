@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -15,8 +16,10 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.when;
 
+@WebMvcTest(UserController.class)
 public class UserControllerTest {
 
     @InjectMocks
@@ -36,9 +39,13 @@ public class UserControllerTest {
         when(userService.getAllUsers()).thenReturn(mockUsers);
 
         ResponseEntity<List<User>> response = userController.getAllUsers();
+
+        // Check if response body is not null before checking size
         assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertEquals(2,response.getBody().size());
+        assertNotNull(response.getBody());  // Ensure the body is not null
+        assertEquals(2, response.getBody().size());
     }
+
 
     @Test
     public void testCreateUser() {

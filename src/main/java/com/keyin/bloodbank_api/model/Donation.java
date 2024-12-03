@@ -5,13 +5,11 @@ package com.keyin.bloodbank_api.model;
 
 import jakarta.persistence.*;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Entity
-@Table(name = "Donation")
 public class Donation {
 
     @Id

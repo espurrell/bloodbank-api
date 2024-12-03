@@ -11,6 +11,6 @@ import java.util.List;
 public interface ReceiveRepository extends JpaRepository<Receive, Integer> {
     List<Receive> findByPersonId(int p_id);
 
-    @Query("SELECT r FROM Receive r ORDER BY r.r_date DESC LIMIT 1")
-    Receive findLastHospitalToReceiveStock();
+    // Find the most recent receive record
+    Receive findTopByOrderByRDateDesc();
 }

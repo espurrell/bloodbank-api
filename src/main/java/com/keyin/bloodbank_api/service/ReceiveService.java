@@ -21,7 +21,7 @@ public class ReceiveService {
 
 // hospital to last receive stock
     public Receive getLastHospitalToReceiveStock() {
-        return receiveRepository.findLastHospitalToReceiveStock();
+        return receiveRepository.findTopByOrderByRDateDesc();
     }
 
     // Get receive records by person ID

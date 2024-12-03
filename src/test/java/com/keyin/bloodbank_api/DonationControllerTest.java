@@ -23,7 +23,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @WebMvcTest(DonationController.class)
-@SpringBootTest
+//@SpringBootTest
 public class DonationControllerTest {
 
     @Autowired

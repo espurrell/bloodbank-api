@@ -2,8 +2,9 @@
 
 -- Table for User
 CREATE TABLE User (
-    username VARCHAR(50) PRIMARY KEY,
-    usr_password VARCHAR(100)
+    u_id SERIAL PRIMARY KEY, -- Auto-incrementing primary key
+    username VARCHAR(50) UNIQUE NOT NULL, -- Ensure unique usernames
+    usr_password VARCHAR(100) NOT NULL    -- Password field
 );
 
 -- Table for Person
@@ -39,7 +40,8 @@ CREATE TABLE Receive (
 
 -- Table for Stock
 CREATE TABLE Stock (
-    s_bloodtype VARCHAR(5) PRIMARY KEY,
+    s_id SERIAL PRIMARY KEY,
+    s_bloodtype VARCHAR(5) NOT NULL,
     quantity INT NOT NULL
 );
 
@@ -57,11 +59,7 @@ INSERT INTO User (username, usr_password) VALUES
 ('bob.s', 'password890'),
 ('clara.h', 'password901'),
 ('dave.t', 'password012'),
-('ellen.p', 'password1234'),
-('fred.b', 'password2345'),
-('grace.j', 'password3456'),
-('henry.o', 'password4567'),
-('irene.z', 'password5678');
+('ellen.p', 'password1234');
 
 -- Insert data into Person table
 INSERT INTO Person (p_id, p_name, p_address, p_dob, p_phone, p_gender, p_bloodtype) VALUES
@@ -118,12 +116,12 @@ INSERT INTO Receive (r_date, p_id, quantity, r_hospital) VALUES
 ('2024-04-08', 1, 450, 'St. Marys Hospital');
 
 -- Insert data into Stock table
-INSERT INTO Stock (s_bloodtype, quantity) VALUES
-('O+', 1500),
-('A+', 1300),
-('B+', 1400),
-('AB+', 1200),
-('A-', 1100),
-('B-', 1000),
-('AB-', 800),
-('O-', 900);
+INSERT INTO Stock (s_id, s_bloodtype, quantity) VALUES
+(1, 'O+', 1500),
+(2, 'A+', 1300),
+(3, 'B+', 1400),
+(4, 'AB+', 1200),
+(5, 'A-', 1100),
+(6, 'B-', 1000),
+(7, 'AB-', 800),
+(8, 'O-', 900);

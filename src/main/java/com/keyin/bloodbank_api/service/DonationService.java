@@ -34,8 +34,8 @@ import java.util.List;
                 return donationRepository.findByDDate(d_date);
             }
 
-        public List<Donation> getDonationsByBloodType(String d_bloodtype) {
-            return donationRepository.findByPersonBloodType(d_bloodtype);
+        public List<Donation> getDonationsByBloodType(String p_bloodtype) {
+            return donationRepository.findByPersonPBloodtype(p_bloodtype);
         }
 
     }
