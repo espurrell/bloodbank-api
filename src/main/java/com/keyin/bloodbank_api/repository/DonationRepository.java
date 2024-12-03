@@ -13,6 +13,7 @@ public interface DonationRepository extends JpaRepository<Donation, Long> {
 
     // Fetch donations by the blood type of the associated person
     @Query("SELECT d FROM Donation d WHERE d.person.p_bloodtype = :bloodtype")
+//    shouldn't need this much detail, spring-boot should do it for us! ^^ Use keywords instead
     List<Donation> findByPersonBloodType(@Param("bloodtype") String bloodtype);
 
     // Fetch donations by date

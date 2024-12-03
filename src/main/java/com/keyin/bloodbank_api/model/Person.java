@@ -1,9 +1,11 @@
 package com.keyin.bloodbank_api.model;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 import java.util.List;
 
-import javax.persistence.*;
+
 
 @Entity
 @Table(name = "Person")

@@ -1,8 +1,6 @@
 package com.keyin.bloodbank_api.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "Stock")
@@ -10,6 +8,7 @@ public class Stock {
 
     @Id
     private String s_bloodtype;  // Primary Key
+//    Id can't be a string ^^ (Long is better than int!)
     private int quantity;
 
     public Stock() {

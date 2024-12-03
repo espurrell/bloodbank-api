@@ -1,6 +1,8 @@
 package com.keyin.bloodbank_api.model;
 
-import javax.persistence.*;
+
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 import java.util.Date;
 

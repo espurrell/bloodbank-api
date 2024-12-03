@@ -1,11 +1,11 @@
 package com.keyin.bloodbank_api.model;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
-@Table(name = "User")
+
 public class User {
-    @Column(name = "username", nullable = false, unique = true)
+
     private String username;
 
     @Column(name = "usr_password", nullable = false)
