@@ -26,30 +26,28 @@ public class BloodbankApiApplication {
 									  StockRepository stockRepository) {
 		return args -> {
 			// Preload some sample users
-			userRepository.save(new User("employee1", "password123"));
-			userRepository.save(new User("employee2", "password456"));
+			userRepository.save(new User(1L, "employee1", "password123"));
+			userRepository.save(new User(2L,"employee2", "password456"));
 
 			// Preload some sample persons
 			Person person1 = new Person(1, "John Doe", "123 Main St",
-					LocalDate.of(1985, 5, 15), "555-555-5555",
-					"M", "O+");
+					LocalDate.of(1985, 5, 15), "555-555-5555", "M", "O+");
 			Person person2 = new Person(2, "Jane Smith", "456 Oak Ave",
-					LocalDate.of(1990, 8, 22), "555-123-4567",
-					"F", "A+");
+					LocalDate.of(1990, 8, 22), "555-123-4567", "F", "A+");
 
 			personRepository.save(person1);
 			personRepository.save(person2);
 
-			// Preload some sample stocks
-			stockRepository.save(new Stock());
-			stockRepository.save(new Stock());
-
-			// Preload some donations and receive events
+			// Preload some donations
 			donationRepository.save(new Donation(LocalDate.now(), LocalTime.of(10, 30), person1, 500));
+			donationRepository.save(new Donation(LocalDate.now(), LocalTime.of(11, 00), person2, 450));
+
+			// Preload some receive events
 			receiveRepository.save(new Receive(LocalDate.now(), 2, "General Hospital", person2));
 
 			System.out.println("Sample data loaded into the database.");
 		};
 	}
+
 }
 

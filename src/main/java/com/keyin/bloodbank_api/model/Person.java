@@ -5,45 +5,33 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
-
-
 @Entity
-@Table(name = "Person")
 public class Person {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private int p_id;
-
     private String p_name;
-
     private String p_address;
-
     private LocalDate p_dob;
-
     private String p_phone;
-
     private String p_gender;
-
-    private String p_bloodtype;
+    private String p_bloodtype;  // field name
 
     @OneToMany(mappedBy = "person", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Donation> donations;
 
-    // Parameterized constructor
-    public Person(int p_id, String name, String address, LocalDate dob, String phone, String gender, String bloodType) {
-        this.p_name = name;
-        this.p_address = address;
-        this.p_dob = dob;
-        this.p_phone = phone;
-        this.p_gender = gender;
-        this.p_bloodtype = bloodType;
+    // getters and setters
+
+    public String getBloodType() {
+        return p_bloodtype;  // getter method
     }
 
-    public Person() {
-//    no argument constructor
-    };
+    public void setBloodType(String p_bloodtype) {
+        this.p_bloodtype = p_bloodtype;  // setter method
+    }
 
-    // get and set
     public int getId() {
         return p_id;
     }
@@ -65,10 +53,10 @@ public class Person {
         this.p_address = p_address;
     }
 
-    public LocalDate getDob() {
+    public LocalDate getDOB() {
         return p_dob;
     }
-    public void setDob(LocalDate p_dob) {
+    public void setDOB(LocalDate p_address) {
         this.p_dob = p_dob;
     }
 
@@ -84,19 +72,5 @@ public class Person {
     }
     public void setGender(String p_gender) {
         this.p_gender = p_gender;
-    }
-
-    public String getBloodType() {
-        return p_bloodtype;
-    }
-    public void setBloodType(String p_bloodtype) {
-        this.p_bloodtype = p_bloodtype;
-    }
-
-    public List<Donation> getDonations() {
-        return donations;
-    }
-    public void setDonations(List<Donation> donations) {
-        this.donations = donations;
     }
 }

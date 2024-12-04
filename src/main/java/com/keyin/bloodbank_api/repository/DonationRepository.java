@@ -10,7 +10,7 @@ import java.util.List;
 public interface DonationRepository extends JpaRepository<Donation, Long> {
 
     // Fetch donations by the blood type of the associated person
-    List<Donation> findByPersonPBloodtype(String p_bloodtype);
+    List<Donation> findByPersonBloodType(String bloodType);
 
     // Fetch donations by date
     List<Donation> findByDDate(LocalDate date);

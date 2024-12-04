@@ -69,7 +69,7 @@ public class ReceiveControllerTest {
                 .andExpect(jsonPath("$[0].rHospital").value("General Hospital"));
     }
 
-    // 3. Test POST /api/receive - add a new receive record
+    // 3. Test POST /api/receive - add a new Receive record
     @Test
     public void testAddReceive() throws Exception {
         when(receiveService.addReceive(any(Receive.class))).thenReturn(receive);
@@ -82,7 +82,7 @@ public class ReceiveControllerTest {
                 .andExpect(jsonPath("$.quantity").value(2));
     }
 
-    // 4. Test PUT /api/receive/{id} - update a receive record
+    // 4. Test PUT /api/receive/{id} - update a Receive record
     @Test
     public void testUpdateReceive() throws Exception {
         Receive updatedReceive = new Receive(LocalDate.now(), 3, "City Hospital", person);
